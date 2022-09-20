@@ -3,9 +3,14 @@ import { Box, Button, Center, HStack, ScrollView, Text } from "native-base";
 import React from "react";
 import Colors from "../color";
 import Buttone from "../Components/Buttone";
+import loadLocalResource from 'react-native-local-resource';
+import { Dirs, FileSystem } from 'react-native-file-access';
+import untertitel from '../../assets/untertitel.txt';
 // import CartEmpty from "../Components/CartEmpty";
 import EventIterms from "../Components/EventIterms";
 import {  Alert, TextInput, StyleSheet } from "react-native";
+
+
 
 function CartScreen() {
   const navigation = useNavigation();
@@ -62,7 +67,16 @@ function CartScreen() {
         keyboardType="numeric"
       />
           <Buttone
-            onPress={() => Alert.alert("Untertitel start with code")}
+            onPress={()  => 
+              
+              loadLocalResource(untertitel).then((untertitelContent) => {
+                
+                console.log("untertitel was loaded: " + untertitelContent);
+               
+            }
+        )
+            
+            }
             bg={Colors.black}
             color={Colors.white}
             mt={10}
