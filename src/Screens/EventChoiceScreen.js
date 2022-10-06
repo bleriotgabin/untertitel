@@ -6,6 +6,9 @@ import Buttone from "../Components/Buttone";
 // import CartEmpty from "../Components/CartEmpty";
 import EventIterms from "../Components/EventIterms";
 import {  Alert, TextInput, StyleSheet } from "react-native";
+import UntertitelScreen from "../Screens/UntertitelScrenn";
+
+
 
 function CartScreen() {
   const navigation = useNavigation();
@@ -62,7 +65,9 @@ function CartScreen() {
         keyboardType="numeric"
       />
           <Buttone
-            onPress={() => Alert.alert("Untertitel start with code")}
+            onPress={() => 
+               navigation.navigate("Untertitel")
+                    }
             bg={Colors.black}
             color={Colors.white}
             mt={10}
